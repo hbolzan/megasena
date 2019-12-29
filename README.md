@@ -59,7 +59,7 @@ Gera um jogo com a quantidade de `dezenas` extraindo bolas do globo `cage`. O me
 ```
 
 ##### play(dezenas, history, local_history)
-Instancia um globo com 60 bolas e gera jogos com o número especificado de dezenas até as bolas se esgotarem. Para evitar jogos que já aconteceram no passado, o parâmetro `history` deve receber um array com os resultados de todos os concursos anteriores. O parâmetro `local_history` pode receber os jogos gerados durante uma sessão `play_cages** para evitar jogos repetidos na mesma sessão.
+Instancia um globo com 60 bolas e gera jogos com o número especificado de dezenas até as bolas se esgotarem. Para evitar jogos que já aconteceram no passado, o parâmetro `history` deve receber um array com os resultados de todos os concursos anteriores. O parâmetro `local_history` pode receber os jogos gerados durante uma sessão `play_cages` para evitar jogos repetidos na mesma sessão.
 
 A função retorna uma tupla com 3 listas:
 - Os jogos extraidos de um globo com 60 bolas
