@@ -1,5 +1,7 @@
 # Megasena
 
+![Bolinhas](bolinhas.jpg)
+
 Com o fim de ano vem a Megasena da Virada e aí é aquela dificuldade para escolher os números. Então resolvi me divertir um pouco criando alguns métodos *super científicos* para gerar as minhas apostas. Se você ganhar um prêmio e quiser compartilhar um pouco comigo vou ficar muito feliz. Mas se não quiser compartilhar não tem problema e vou ficar feliz por você mesmo assim.
 
 ## Aviso Legal
