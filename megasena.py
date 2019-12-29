@@ -1,5 +1,3 @@
-#!/usr/bin/python3
-
 import csv
 from raffle_cage import Cage
 
@@ -28,7 +26,7 @@ def save_games(games, file_name):
 
 def play_one(cage, dezenas):
      try:
-          return sorted([cage.roll() for i in range(dezenas)])
+          return sorted([cage.alt_roll() for i in range(dezenas)])
      except TypeError:
           return None
 
@@ -65,14 +63,7 @@ def play_cages(cages_count, dezenas):
      found_log = []
      local_found_log = []
      all_games = []
-     counter = 0
-     thousands = 0
      for i in range(cages_count):
-          counter += 1
-          if counter > 999:
-               thousands += 1
-               counter = 0
-               print(thousands)
           games, found, local_found = play(dezenas, history, all_games)
           found_log += found
           local_found_log += local_found
@@ -85,10 +76,10 @@ def play_and_save(cages_count, instance_number):
      save_games(games, "games_{}.csv".format(instance_number))
 
 
-def consolidate(instances_count):
+def consolidate(instances_count, path="."):
      all_games = []
      for n in range(instances_count):
-          all_games += load_games("games_{}.csv".format(n))
+          all_games += load_games("{}/games_{}.csv".format(path, n))
      return sorted(all_games)
 
 
@@ -109,6 +100,10 @@ def play_and_save_many(cages_count, how_many_times):
           print("times: ", n)
           play_and_save(cages_count, n)
 
-def print_games(games):
-     for g in games:
-          print(g)
+
+def count_frequency(games, dezena):
+     results = {}
+     for game in games:
+          d = game[dezena]
+          results[d] = results.get(d, 0) + 1
+     return results
