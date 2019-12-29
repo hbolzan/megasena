@@ -42,11 +42,11 @@ Aqui é onde a diversão acontece. Antes de começar, convém gerar um csv atual
 - Descompacte o arquivo para extrair o html com os resultados.
 - Abra o html no LibreOffice Calc ou no Excel.
 - Copie o conteúdo das colunas C a H **sem os cabeçalhos** e cole em uma nova planilha.
-- Salve a nova planilha como CSV delimitado por vírgulas (",") na pasta do projeto, sobrepondo o arquivo `resultados.csv**.
+- Salve a nova planilha como CSV delimitado por vírgulas (",") na pasta do projeto, sobrepondo o arquivo `resultados.csv`.
 
 #### Funções
 
-**`play_one(cage, dezenas)`**
+##### play_one(cage, dezenas)
 Gera um jogo com a quantidade de `dezenas` extraindo bolas do globo `cage`. O mesmo globo pode ser usado até acabarem as bolas. Observe que os jogos gerados com um mesmo globo não terão dezenas repetidas.
 ```
 >>> cage = Cage(60)
@@ -56,7 +56,7 @@ Gera um jogo com a quantidade de `dezenas` extraindo bolas do globo `cage`. O me
 [3, 10, 11, 39, 52, 54]
 ```
 
-**`play(dezenas, history, local_history)`**
+##### play(dezenas, history, local_history)
 Instancia um globo com 60 bolas e gera jogos com o número especificado de dezenas até as bolas se esgotarem. Para evitar jogos que já aconteceram no passado, o parâmetro `history` deve receber um array com os resultados de todos os concursos anteriores. O parâmetro `local_history` pode receber os jogos gerados durante uma sessão `play_cages** para evitar jogos repetidos na mesma sessão.
 
 A função retorna uma tupla com 3 listas:
@@ -81,7 +81,7 @@ A função retorna uma tupla com 3 listas:
 
 ```
 
-**`play_cages(cages_count, dezenas)`**
+##### play_cages(cages_count, dezenas)
 Gera jogos com o número de dezenas especificado em `dezenas` extraidos da quantidade de globos recebida em `cages_count`.
 
 ```
@@ -111,7 +111,7 @@ Gera jogos com o número de dezenas especificado em `dezenas` extraidos da quant
 
 ```
 
-**`play_and_save(cages_count, instance_number)`**
+##### play_and_save(cages_count, instance_number)
 Roda `play_cages` com o `cages_count` recebido e 6 dezenas e salva o resultado em um CSV nomeado com `instance_number`. Criei essa função para gerar um número enorme de jogos para depois procurar as repetições com maior incidência. Para isso é preciso fazer a seguinte alteração na função `play_cages`:
 ```
           # substituir essa linha
@@ -123,17 +123,17 @@ Roda `play_cages` com o `cages_count` recebido e 6 dezenas e salva o resultado e
 ```
 para que a função `play** não despreze as repetições.
 
-**`play_and_save_many(cages_count, how_many_times)`**
+##### play_and_save_many(cages_count, how_many_times)
 Roda a função `play_and_save` `how_many_times` vezes, com o número de globos `cages_count`.
 O exemplo abaixo gera aproximadamente 10 milhões de jogos distribuidos em 500 arquivos (excluindo as repetições encontradas no histórico).
 ```
 >>> play_and_save_many(2000, 500)
-``**
+```
 
-**`consolidate(instances_count, payh=".")`**
+##### consolidate(instances_count, payh=".")
 Consolida os resultados gravados nos CSV's gerados `instances_count` vezes por `play_and_save**.
 
-** `consolidate_and_group(instances_count)`
+##### consolidate_and_group(instances_count)
 Consolida chamando `consolidate` e agrupa os resultados.
 De cada globo com 60 bolas é possível gerar 10 jogos de 6 dezenas. Portanto, o exemplo abaixo gera aproximadamente 500 resultados - `5 globos x 10 jogos x 10 vezes = 500 jogos`.
 ```
@@ -159,9 +159,9 @@ times:  9
                             ...
  '[32, 34, 35, 40, 48, 52]': {'count': 1, 'value': [32, 34, 35, 40, 48, 52]},
  '[33, 46, 48, 49, 52, 56]': {'count': 1, 'value': [33, 46, 48, 49, 52, 56]}}
-`****
+```
 
-**`filter_dict(d, filter_fn)`**
+##### filter_dict(d, filter_fn)
 Permite filtrar um conjunto muito grande de resultados de `consolidate_and_group` para obter, por exemplo, somente os jogos que foram gerados mais de um certo número de vezes.
 ```
 >>> play_and_save_many(1000, 10)
@@ -182,9 +182,9 @@ times:  9
                   ...
  {'count': 2, 'value': [32, 34, 37, 41, 44, 57]}]
 
-``**
+```
 
-**`count_frequency(games, dezena)`**
+##### count_frequency(games, dezena)
 Conta a frequência com que cada número ocorreu como uma determinada dezena em um conjunto de jogos. Por exemplo, para saber quanto cada número ocorreu como primeira dezena em todos os concursos anteriores:
 ```
 >>> history = get_history()
