@@ -42,8 +42,8 @@ def play(dezenas, history, local_history):
                return (sorted(games), found, local_found)
           if game in history:
                found.append(game)
-          # elif game in local_history or game in games:
-          #      local_found.append(game)
+          elif game in local_history or game in games:
+               local_found.append(game)
           else:
                games.append(game)
 
