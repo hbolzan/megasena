@@ -123,7 +123,7 @@ Roda `play_cages` com o `cages_count` recebido e 6 dezenas e salva o resultado e
           games, found, local_found = play(dezenas, history, [])
 
 ```
-para que a função `play** não despreze as repetições.
+para que a função `play` não despreze as repetições.
 
 ##### play_and_save_many(cages_count, how_many_times)
 Roda a função `play_and_save` `how_many_times` vezes, com o número de globos `cages_count`.
@@ -132,12 +132,12 @@ O exemplo abaixo gera aproximadamente 10 milhões de jogos distribuidos em 500 a
 >>> play_and_save_many(2000, 500)
 ```
 
-##### consolidate(instances_count, payh=".")
-Consolida os resultados gravados nos CSV's gerados `instances_count` vezes por `play_and_save**.
+##### consolidate(instances_count, path=".")
+Consolida os resultados gravados nos CSV's gerados `instances_count` vezes por `play_and_save`.
 
 ##### consolidate_and_group(instances_count)
 Consolida chamando `consolidate` e agrupa os resultados.
-De cada globo com 60 bolas é possível gerar 10 jogos de 6 dezenas. Portanto, o exemplo abaixo gera aproximadamente 500 resultados - `5 globos x 10 jogos x 10 vezes = 500 jogos`.
+De cada globo com 60 bolas é possível gerar 10 jogos de 6 dezenas. Portanto, o exemplo abaixo gera 500 resultados - `5 globos x 10 jogos x 10 vezes = 500 jogos`.
 ```
 >>> play_and_save_many(5, 10)
 times:  0                                                                    
@@ -206,4 +206,5 @@ Conta a frequência com que cada número ocorreu como uma determinada dezena em 
 Para saber quais foram os 5 números que mais ocorreram como primeira dezena em toda a história da megasena:
 ```
 >>> list(reversed(sorted([[v, k] for k,v in count_frequency(history, 0).items()])[-5:]))
+[[221, 1], [205, 2], [187, 4], [168, 3], [162, 5]]
 ```
